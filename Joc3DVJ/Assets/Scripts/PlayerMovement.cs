@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     
         if (hor != 0 || ver != 0) AxisMove(hor, ver, speed);
         if (horKey != 0 || verKey != 0) AxisMove(horKey, verKey, speed);
+
+        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
     void AxisMove(float x, float y, float speed){
