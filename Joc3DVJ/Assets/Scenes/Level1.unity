@@ -166,7 +166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-<<<<<<< HEAD
 --- !u!1001 &81463877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -374,7 +373,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e259e812818c9074dbe1011ab1789aae, type: 3}
-=======
 --- !u!1 &184408113
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +579,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
     type: 3}
->>>>>>> ProbaTrail
 --- !u!1 &518530188
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +673,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1001 &608176146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -815,7 +811,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24d54da20b07b7d4bb94aa91d81e854b, type: 3}
-=======
 --- !u!54 &518530193
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -995,7 +990,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
->>>>>>> ProbaTrail
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,7 +1415,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d58bf68b17f9a4240aaeb5c200c9a12c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 668f40e714e20ed499014cc822acdb9f, type: 3}
-<<<<<<< HEAD
 --- !u!1001 &1213007389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1491,7 +1484,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f67db069f8983f49bdeff2fdad26975, type: 3}
-=======
 --- !u!1 &1216768231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,7 +1649,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> ProbaTrail
 --- !u!1 &1470785621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,16 +1696,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a9c787e5d1bbf48a389834c4a9641c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   m_Path: {fileID: 1617936353}
   m_UpdateMethod: 0
   m_PositionUnits: 1
   m_Speed: 7.5
   m_Position: 0
 --- !u!1 &1617936352
-=======
 --- !u!1 &1528314272
->>>>>>> ProbaTrail
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1722,12 +1710,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 1617936354}
   - component: {fileID: 1617936353}
   m_Layer: 0
   m_Name: DollyTrack1
-=======
   - component: {fileID: 1528314273}
   - component: {fileID: 1528314275}
   - component: {fileID: 1528314274}
@@ -1807,23 +1793,18 @@ GameObject:
   - component: {fileID: 1528387001}
   m_Layer: 0
   m_Name: SoundManager
->>>>>>> ProbaTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!114 &1617936353
-=======
 --- !u!114 &1528387001
->>>>>>> ProbaTrail
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 1617936352}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1858,7 +1839,6 @@ MonoBehaviour:
   - position: {x: -148.76091, y: -55.45044, z: 333.58188}
     roll: 0
 --- !u!4 &1617936354
-=======
   m_GameObject: {fileID: 1528387000}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1962,13 +1942,11 @@ AudioSource:
     m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!4 &1528387003
->>>>>>> ProbaTrail
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 1617936352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.3, y: 0, z: -16}
@@ -1976,7 +1954,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-=======
   m_GameObject: {fileID: 1528387000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -1984,7 +1961,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
->>>>>>> ProbaTrail
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1639918054
 GameObject:
@@ -2149,7 +2125,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640841645}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< HEAD
 --- !u!1001 &1793010679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2609,7 +2584,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc3d5a73d5e4cf2498bffd1c3c5ad691, type: 3}
-=======
 --- !u!114 &1640841650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2756,4 +2730,3 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
->>>>>>> ProbaTrail
