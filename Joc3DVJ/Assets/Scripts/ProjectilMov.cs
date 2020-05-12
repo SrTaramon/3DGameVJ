@@ -6,6 +6,8 @@ public class ProjectilMov : MonoBehaviour
 {   
     public float speed;
     public float firerate;
+
+    public GameObject Orientation1;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,18 @@ public class ProjectilMov : MonoBehaviour
     void Update()
     {
         if (speed != 0) {
-            transform.position += transform.position * (speed * Time.deltaTime);
+            transform.position += transform.forward * (speed * Time.deltaTime);
         }
+    }
+
+
+    void OnCollisionEnter(Collision collision)
+    {
+        speed = 0;
+        
+        
+        Destroy(gameObject);
+        
+        Debug.Log("Chest is here!");
     }
 }
