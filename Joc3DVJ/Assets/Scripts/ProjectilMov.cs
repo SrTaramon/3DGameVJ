@@ -7,7 +7,7 @@ public class ProjectilMov : MonoBehaviour
     public float speed;
     public float firerate;
 
-    public GameObject Orientation1;
+    public GameObject explosionEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +26,10 @@ public class ProjectilMov : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         speed = 0;
-        
-        
+
+        GameObject clonExpl = Instantiate(explosionEffect, transform.position, transform.rotation);
+        SoundManagerController.PlaySound("explosion");
+        Destroy(clonExpl, 2);
         Destroy(gameObject);
-        
-        Debug.Log("Chest is here!");
     }
 }
