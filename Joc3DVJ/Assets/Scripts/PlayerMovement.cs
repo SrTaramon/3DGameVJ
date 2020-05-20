@@ -9,10 +9,11 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Transform player;
+    public Transform player;
     public float speed;
     public Transform aimTarget;
     public float lookSpeed = 340;
+    public Transform canvas;
 
     void Start(){
         player = transform.GetChild(0);
@@ -29,9 +30,9 @@ public class PlayerMovement : MonoBehaviour
         
 
         AxisMove(hor, ver, speed);
-        RotationLook(hor,ver, lookSpeed);
+        RotationLook(player, hor,ver, lookSpeed);
         HorizontalLean(player, hor, 50, .1f);
-
+        
 
         /*
         if (hor != 0 || ver != 0){
@@ -71,11 +72,13 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Camera.main.ViewportToWorldPoint(pos);
     }
 
-    void RotationLook(float h, float v, float speed)
+    void RotationLook(Transform target, float h, float v, float speed)
     {   
         
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(aimTarget.position), Mathf.Deg2Rad * speed);
-        //aimTarget.localPosition = new Vector3(h, v, 10);
+        
+        //target.rotation = Quaternion.RotateTowards(target.rotation, Quaternion.LookRotation(aimTarget.position), Mathf.Deg2Rad * 100);
+        Quaternion targetRotation = Quaternion.LookRotation(aimTarget.transform.position - target.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
         
     }
 
@@ -83,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 targetEulerAngels = target.localEulerAngles;
         target.localEulerAngles = new Vector3(targetEulerAngels.x, targetEulerAngels.y, Mathf.LerpAngle(targetEulerAngels.z, -axis * leanLimit, lerpTime));
+        
     }
 
     private void OnDrawGizmos()
