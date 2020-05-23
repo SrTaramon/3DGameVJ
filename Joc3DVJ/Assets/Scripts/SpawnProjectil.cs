@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnProjectil : MonoBehaviour
 {   
@@ -13,6 +14,7 @@ public class SpawnProjectil : MonoBehaviour
     public GameObject projectilOrientation2;
 
     public float despawnTime;
+    public Slider sliderHP;
 
     private Vector3 direction;
     private Vector3 direction2;
@@ -25,7 +27,7 @@ public class SpawnProjectil : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  
-        if (Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.S)){
+        if ((Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.S)) && sliderHP.value != 0){
             FSpawnProjectil();
             SoundManagerController.PlaySound("bullet");
         }
