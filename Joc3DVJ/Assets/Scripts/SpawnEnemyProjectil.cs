@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SpawnEnemyProjectil : MonoBehaviour
 {
-     public GameObject firePoint1;
+    public GameObject explosionEffect;
+
+    public GameObject firePoint1;
 
     public GameObject projectil;
 
@@ -31,6 +33,14 @@ public class SpawnEnemyProjectil : MonoBehaviour
             lastShot = Time.time;
         }
         
+    }
+
+    void OnCollisionEnter(Collision c){
+        GameObject cloneExpl = Instantiate(explosionEffect, transform.position, transform.rotation);
+        SoundManagerController.PlaySound("explosion");
+        Destroy(cloneExpl, 4);
+        Destroy(c.gameObject);
+        gameObject.SetActive(false);
     }
 
     void FSpawnProjectil() {

@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform aimTarget;
     public float lookSpeed = 340;
     public Transform canvas;
+    public Collider collider;
+
 
     void Start(){
         player = transform.GetChild(0);
@@ -49,7 +51,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene("Menu", LoadSceneMode.Single);
 
-        if (Input.GetKey(KeyCode.Space)) QuickSpin(1);
+        if (Input.GetKeyDown(KeyCode.Space)){
+            StartCoroutine(QuickSpin(1));
+        }
     }
 
     void AxisMove(float x, float y, float speed){
@@ -97,11 +101,15 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void QuickSpin(int dir)
+    public IEnumerator QuickSpin(int dir)
     {
         if (!DOTween.IsTweening(player))
         {
+            collider.enabled = !collider.enabled;
             player.DOLocalRotate(new Vector3(player.localEulerAngles.x, player.localEulerAngles.y, 360 * -dir), .4f, RotateMode.LocalAxisAdd).SetEase(Ease.OutSine);
+            
+            yield return new WaitForSeconds(1.5f);
+            collider.enabled = !collider.enabled;
         }
     }
 
