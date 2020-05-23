@@ -23,13 +23,5 @@ public class ProjectilMov : MonoBehaviour
     }
 
 
-    void OnCollisionEnter(Collision collision)
-    {
-        speed = 0;
 
-        GameObject clonExpl = Instantiate(explosionEffect, transform.position, transform.rotation);
-        SoundManagerController.PlaySound("explosion");
-        Destroy(clonExpl, 2);
-        Destroy(gameObject);
-    }
 }

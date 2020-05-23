@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - FriendBullet
   - Bullet
+  - Tower1
+  - ColiderEnemy1
   layers:
   - Default
   - TransparentFX
