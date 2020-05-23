@@ -239,6 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc78437fe0a7c3d4bba1f360be8f987e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 3}
   firePoint1: {fileID: 2340892810290714736}
   projectil: {fileID: 2412105889037700418, guid: 14c3fb2bf45184e498910fffbaa8e355,
     type: 3}
