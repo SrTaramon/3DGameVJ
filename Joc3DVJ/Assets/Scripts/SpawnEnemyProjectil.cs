@@ -45,4 +45,14 @@ public class SpawnEnemyProjectil : MonoBehaviour
 
         Destroy (proj, despawnTime);
     }
+
+    void OnCollisionEnter(Collision c){
+        if (c.gameObject.tag == "FriendBullet"){
+            GameObject cloneExpl = Instantiate(explosionEffect, transform.position, transform.rotation);
+            SoundManagerController.PlaySound("explosion");
+            Destroy(cloneExpl, 4);
+            Destroy(c.gameObject);
+            gameObject.SetActive(false);
+        }
+    }
 }
