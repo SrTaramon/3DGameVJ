@@ -22,6 +22,14 @@ public class ProjectilMov : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision collision)
+    {   
+        Destroy(gameObject);
+
+
+    }
+    
+
 
 
 }

@@ -15,6 +15,8 @@ public class SpawnEnemyProjectil2 : MonoBehaviour
 
     public float despawnTime;
 
+    public GameObject card; 
+
     private Vector3 direction;
     private Vector3 direction2;
 
@@ -24,7 +26,7 @@ public class SpawnEnemyProjectil2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
