@@ -53,6 +53,7 @@ public class SpawnEnemyProjectil : MonoBehaviour
             Destroy(cloneExpl, 4);
             Destroy(c.gameObject);
             gameObject.SetActive(false);
+            Debug.Log("Hola");
         }
     }
 }

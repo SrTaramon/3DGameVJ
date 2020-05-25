@@ -7,12 +7,15 @@ public class SoundManagerController : MonoBehaviour
     public static AudioClip explosion;
     public static AudioClip bullet;
 
+    public static AudioClip gameover;
+
     static AudioSource audioSrc;
 
     void Start(){
         explosion = Resources.Load<AudioClip>("Explosion");
         audioSrc = GetComponent<AudioSource>();
         bullet = Resources.Load<AudioClip>("Bullet");
+        gameover = Resources.Load<AudioClip>("GameOver");
     }
 
     public static void PlaySound(string state){
@@ -22,6 +25,9 @@ public class SoundManagerController : MonoBehaviour
             break;
         case "bullet":
             audioSrc.PlayOneShot(bullet);
+            break;
+        case "gameover":
+            audioSrc.PlayOneShot(gameover);
             break;
         }
     }

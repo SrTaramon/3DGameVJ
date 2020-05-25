@@ -10,29 +10,41 @@ public class CollisionController : MonoBehaviour
 
     public Slider sliderHP;
 
-    public Image mira;
-
     public TextMesh text;
+
+    public TextMesh godMode;
+
+    public Collider collider;
 
     private AudioSource audio;
 
     private float vida;
 
+    private bool dead;
+
     void Start(){
+        collider = GetComponent<Collider>();
         audio = GetComponent<AudioSource>();
         vida = 100;
+        dead = false;
+        text.gameObject.SetActive(false);
+        godMode.gameObject.SetActive(false);
     }
 
     void Update(){
-        if (vida <= 0){
+        if (vida <= 0 && !dead){
             gameObject.SetActive(false);
-            mira.gameObject.SetActive(false);
-            text.gameObject.SetActive(true);
+            dead = true;
+        }
+        if (Input.GetKeyDown(KeyCode.G)){
+            collider.enabled = !collider.enabled;
+            godMode.gameObject.SetActive(true);
         }
     }
+
     
     void OnCollisionEnter(Collision c){
-        if (c.gameObject.name == "Roca"){
+        if (c.gameObject.tag == "Enemy"){
             explosionMuerte(c.gameObject);
             audio.mute = !audio.mute;
             vida = 0;
@@ -40,6 +52,9 @@ public class CollisionController : MonoBehaviour
         else if (c.gameObject.tag == "Bullet"){
             explosionBala(c.gameObject);
             vida -= 10;
+            if (vida <= 0){
+                explosionMuerte(c.gameObject);
+            }
             sliderHP.value = vida/100;
         }
     }
@@ -50,6 +65,8 @@ public class CollisionController : MonoBehaviour
         Destroy(cloneExpl, 4);
         Destroy(xocat);
         gameObject.SetActive(false);
+        text.gameObject.SetActive(true);
+        SoundManagerController.PlaySound("gameover");
     }
 
     void explosionBala(GameObject xocat){
