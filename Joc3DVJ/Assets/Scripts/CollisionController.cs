@@ -38,7 +38,7 @@ public class CollisionController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.G)){
             collider.enabled = !collider.enabled;
-            godMode.gameObject.SetActive(true);
+            godMode.gameObject.active = !godMode.gameObject.active;
         }
     }
 
