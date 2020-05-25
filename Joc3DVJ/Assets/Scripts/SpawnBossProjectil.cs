@@ -33,7 +33,7 @@ public class SpawnBossProjectil : MonoBehaviour
         if (modorafaga){
             FSpawnProjectil();
             SoundManagerController.PlaySound("bullet");
-
+        }
         if ((Time.time > rafagaTimer + lastShot) ){ // ficar un and amb la distacia la qual començara a disparar
             modorafaga = !modorafaga;
             lastShot = Time.time;
