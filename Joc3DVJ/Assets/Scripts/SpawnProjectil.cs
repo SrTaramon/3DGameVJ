@@ -27,7 +27,7 @@ public class SpawnProjectil : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  
-        if ((Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.S)) && sliderHP.value != 0){
+        if ((Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.X)) && sliderHP.value != 0){
             FSpawnProjectil();
             SoundManagerController.PlaySound("bullet");
         }
