@@ -11,7 +11,7 @@ public class SpawnEnemyProjectil2 : MonoBehaviour
 
     public GameObject projectil;
 
-    public GameObject projectilOrientation1;
+    //public GameObject projectilOrientation1;
 
     public float despawnTime;
 
@@ -23,19 +23,28 @@ public class SpawnEnemyProjectil2 : MonoBehaviour
     public float fireRate;
     private float lastShot;
 
+    public GameObject player;
+
+    private float dist;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("GameplayPlane");
     }
 
     // Update is called once per frame
     void Update()
     {  
+         if (player.activeSelf){
+            dist = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        }
         if ((Time.time > fireRate + lastShot) ){ // ficar un and amb la distacia la qual començara a disparar
-            FSpawnProjectil();
-            SoundManagerController.PlaySound("bullet");
-            lastShot = Time.time;
+            if (dist <= 100 && ((player.transform.position.z - gameObject.transform.position.z) < 0)) {
+                FSpawnProjectil();
+                SoundManagerController.PlaySound("bullet");
+                lastShot = Time.time;
+            }
         }
         
     }
@@ -45,13 +54,13 @@ public class SpawnEnemyProjectil2 : MonoBehaviour
 
 
         proj = Instantiate(projectil, firePoint1.transform.position, Quaternion.identity);
-        direction = projectilOrientation1.transform.position - firePoint1.transform.position;
+        direction = player.transform.position - firePoint1.transform.position;
         proj.transform.localRotation = Quaternion.LookRotation(direction);
 
         Destroy (proj, despawnTime);
 
         proj2 = Instantiate(projectil, firePoint2.transform.position, Quaternion.identity);
-        direction2 = projectilOrientation1.transform.position - firePoint2.transform.position;
+        direction2 = player.transform.position - firePoint2.transform.position;
         proj2.transform.localRotation = Quaternion.LookRotation(direction2);
 
         Destroy (proj2, despawnTime);

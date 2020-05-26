@@ -20,9 +20,12 @@ public class SpawnBossProjectil : MonoBehaviour
     private float lastShot;
     private bool modorafaga;
 
+    private int vida;
+
     // Start is called before the first frame update
     void Start()
     {
+        vida = 20;
         modorafaga = false;
     }
 
@@ -58,6 +61,39 @@ public class SpawnBossProjectil : MonoBehaviour
         if (c.gameObject.tag == "FriendBullet"){
             GameObject cloneExpl = Instantiate(explosionEffect, transform.position, transform.rotation);
             SoundManagerController.PlaySound("explosion");
+            vida = vida - 1;
+            switch (vida){
+                case 18:
+                    GameObject.Find("HPB10").SetActive(false);
+                    break;
+                case 16:
+                    GameObject.Find("HPB9").SetActive(false);
+                    break;
+                case 14:
+                    GameObject.Find("HPB8").SetActive(false);
+                    break;
+                case 12:
+                    GameObject.Find("HPB7").SetActive(false);
+                    break;
+                case 10:
+                    GameObject.Find("HPB6").SetActive(false);
+                    break;
+                case 8:
+                    GameObject.Find("HPB5").SetActive(false);
+                    break;
+                case 6:
+                    GameObject.Find("HPB4").SetActive(false);
+                    break;
+                case 4:
+                    GameObject.Find("HPB3").SetActive(false);
+                    break;
+                case 2:
+                    GameObject.Find("HPB2").SetActive(false);
+                    break;
+                case 0:
+                    GameObject.Find("HPB1").SetActive(false);
+                    break;
+            }
             Destroy(cloneExpl, 4);
             Destroy(c.gameObject);
             gameObject.SetActive(false);
