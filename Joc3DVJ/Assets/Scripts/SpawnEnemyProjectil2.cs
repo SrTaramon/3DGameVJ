@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnEnemyProjectil2 : MonoBehaviour
 {
@@ -29,22 +30,32 @@ public class SpawnEnemyProjectil2 : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        player = GameObject.Find("GameplayPlane");
+    {   
+        if (SceneManager.GetActiveScene().name != "Level2"){
+            player = GameObject.Find("GameplayPlane");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {  
-         if (player.activeSelf){
+        if (player.activeSelf){
             dist = Vector3.Distance(player.transform.position, gameObject.transform.position);
         }
+
         if ((Time.time > fireRate + lastShot) ){ // ficar un and amb la distacia la qual començara a disparar
-            if (dist <= 150 && ((player.transform.position.z - gameObject.transform.position.z) < 0)) {
+            if (SceneManager.GetActiveScene().name == "Level2"){
+                if (dist <= 150) {
+                   FSpawnProjectil();
+                    lastShot = Time.time;
+                    SoundManagerController.PlaySound("bullet");
+                    lastShot = Time.time;
+                }
+            }
+            else if (dist <= 150 && ((player.transform.position.z - gameObject.transform.position.z) < 0)) {
                 FSpawnProjectil();
                 SoundManagerController.PlaySound("bullet");
                 lastShot = Time.time;
-                Debug.Log(dist);
             }
         }
         

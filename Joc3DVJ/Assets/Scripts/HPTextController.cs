@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HPTextController : MonoBehaviour
 {
@@ -16,8 +17,15 @@ public class HPTextController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sliderHP = GameObject.Find("HP").GetComponent<Slider>();
-        hp = GameObject.Find("HPText").GetComponent<Text>();
+        if (SceneManager.GetActiveScene().name != "Level2"){
+            sliderHP = GameObject.Find("HP").GetComponent<Slider>();
+            hp = GameObject.Find("HPText").GetComponent<Text>();
+        }
+        else {
+            sliderHP = GameObject.Find("HP2").GetComponent<Slider>();
+            hp = GameObject.Find("HPText2").GetComponent<Text>();
+        }
+        
         hp.text = "100 HP";
     }
 
