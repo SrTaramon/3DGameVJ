@@ -10,6 +10,7 @@ TagManager:
   - ColiderEnemy1
   - Enemy
   - Tower2
+  - Boss
   layers:
   - Default
   - TransparentFX

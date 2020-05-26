@@ -76,8 +76,8 @@ public class CollisionController : MonoBehaviour
             if (vida <= 0){
                 explosionMuerte(c.gameObject);
             }
-            sliderHP.value = vida/100;
         }
+        sliderHP.value = vida/100;
     }
 
     void explosionMuerte(GameObject xocat){

@@ -39,7 +39,6 @@ public class SpawnBossProjectil2 : MonoBehaviour
     {   
         
         var dist = Vector3.Distance(projectilOrientation1.transform.position, gameObject.transform.position);
-        Debug.Log(dist);
 
         if (modorafaga){
             FSpawnProjectil();
@@ -68,5 +67,58 @@ public class SpawnBossProjectil2 : MonoBehaviour
         proj2.transform.localRotation = Quaternion.LookRotation(direction2);
 
         Destroy (proj2, despawnTime);
+    }
+
+    void OnCollisionEntered(Collider c){
+        if (c.gameObject.tag == "FriendBullet"){
+            vida = vida - 1;
+            switch (vida){
+                case 18:
+                    GameObject.Find("HPB10").SetActive(false);
+                    SoundManagerController.PlaySound("explosion");
+                    break;
+                case 16:
+                    GameObject.Find("HPB9").SetActive(false);
+                    SoundManagerController.PlaySound("explosion");
+                    break;
+                case 14:
+                    GameObject.Find("HPB8").SetActive(false);
+                    SoundManagerController.PlaySound("explosion");
+                    break;
+                case 12:
+                    GameObject.Find("HPB7").SetActive(false);
+                    SoundManagerController.PlaySound("explosion");
+                    break;
+                case 10:
+                    GameObject.Find("HPB6").SetActive(false);
+                    SoundManagerController.PlaySound("explosion");
+                    break;
+                case 8:
+                    GameObject.Find("HPB5").SetActive(false);
+                    SoundManagerController.PlaySound("explosion");
+                    break;
+                case 6:
+                    GameObject.Find("HPB4").SetActive(false);
+                    SoundManagerController.PlaySound("explosion");
+                    break;
+                case 4:
+                    GameObject.Find("HPB3").SetActive(false);
+                    SoundManagerController.PlaySound("explosion");
+                    break;
+                case 2:
+                    GameObject.Find("HPB2").SetActive(false);
+                    SoundManagerController.PlaySound("explosion");
+                    break;
+                case 0:
+                    GameObject.Find("HPB1").SetActive(false);
+                    GameObject cloneExpl = Instantiate(explosionEffect, transform.position, transform.rotation);
+                    Destroy(cloneExpl, 3);
+                    Destroy(c.gameObject);
+                    gameObject.SetActive(false);
+                    SoundManagerController.PlaySound("win");
+                    win.gameObject.SetActive(true);
+                    break;
+            }
+        }
     }
 }
