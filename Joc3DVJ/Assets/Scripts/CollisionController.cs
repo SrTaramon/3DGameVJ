@@ -52,6 +52,22 @@ public class CollisionController : MonoBehaviour
             explosionMuerte(c.gameObject);
             audio.mute = !audio.mute;
             vida = 0;
+            Debug.Log("TOWERRR");
+        }
+        if (c.gameObject.tag == "Tower1"){
+            explosionMuerte(c.gameObject);
+            audio.mute = !audio.mute;
+            vida = 0;
+        }
+        if (c.gameObject.tag == "Tower2"){
+            explosionMuerte(c.gameObject);
+            audio.mute = !audio.mute;
+            vida = 0;
+        }
+        if (c.gameObject.tag == "Roca"){
+            explosionMuerteSoloNave(c.gameObject);
+            audio.mute = !audio.mute;
+            vida = 0;
         }
         else if (c.gameObject.tag == "Bullet"){
             explosionBala(c.gameObject);
@@ -78,6 +94,15 @@ public class CollisionController : MonoBehaviour
         SoundManagerController.PlaySound("explosion");
         Destroy(cloneExpl, 4);
         Destroy(xocat);
+    }
+
+    void explosionMuerteSoloNave(GameObject xocat){
+        GameObject cloneExpl = Instantiate(explosionEffect, transform.position, transform.rotation);
+        SoundManagerController.PlaySound("explosion");
+        Destroy(cloneExpl, 4);
+        gameObject.SetActive(false);
+        text.gameObject.SetActive(true);
+        SoundManagerController.PlaySound("gameover");
     }
 
 }

@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Tower1
   - ColiderEnemy1
+  - Enemy
+  - Tower2
   layers:
   - Default
   - TransparentFX

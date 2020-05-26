@@ -40,10 +40,11 @@ public class SpawnEnemyProjectil2 : MonoBehaviour
             dist = Vector3.Distance(player.transform.position, gameObject.transform.position);
         }
         if ((Time.time > fireRate + lastShot) ){ // ficar un and amb la distacia la qual començara a disparar
-            if (dist <= 100 && ((player.transform.position.z - gameObject.transform.position.z) < 0)) {
+            if (dist <= 150 && ((player.transform.position.z - gameObject.transform.position.z) < 0)) {
                 FSpawnProjectil();
                 SoundManagerController.PlaySound("bullet");
                 lastShot = Time.time;
+                Debug.Log(dist);
             }
         }
         

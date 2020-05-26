@@ -92,11 +92,12 @@ public class SpawnBossProjectil : MonoBehaviour
                     break;
                 case 0:
                     GameObject.Find("HPB1").SetActive(false);
+                    Destroy(cloneExpl, 4);
+                    Destroy(c.gameObject);
+                    gameObject.SetActive(false);
                     break;
             }
-            Destroy(cloneExpl, 4);
-            Destroy(c.gameObject);
-            gameObject.SetActive(false);
+            
         }
         else if (c.gameObject.name == "Player"){
             Debug.Log("Hola");
