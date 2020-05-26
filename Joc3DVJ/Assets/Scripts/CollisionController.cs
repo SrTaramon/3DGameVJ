@@ -49,6 +49,7 @@ public class CollisionController : MonoBehaviour
     
     void OnCollisionEnter(Collision c){
         if (c.gameObject.tag == "Enemy"){
+            Debug.Log("YESSA");
             explosionMuerte(c.gameObject);
             audio.mute = !audio.mute;
             vida = 0;
@@ -62,6 +63,7 @@ public class CollisionController : MonoBehaviour
             explosionMuerte(c.gameObject);
             audio.mute = !audio.mute;
             vida = 0;
+            
         }
         if (c.gameObject.tag == "Roca"){
             explosionMuerteSoloNave(c.gameObject);
