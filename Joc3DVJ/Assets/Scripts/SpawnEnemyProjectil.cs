@@ -10,7 +10,9 @@ public class SpawnEnemyProjectil : MonoBehaviour
 
     public GameObject projectil;
 
-    public GameObject projectilOrientation;
+    //public GameObject projectilOrientation;
+
+    public GameObject player;
 
     public float despawnTime;
 
@@ -18,19 +20,26 @@ public class SpawnEnemyProjectil : MonoBehaviour
     private Vector3 direction2;
     public float fireRate;
     private float lastShot;
+
+    private float dist;
     // Start is called before the first frame update
     void Start()
     {
-
+        player = GameObject.Find("GameplayPlane");
     }
 
     // Update is called once per frame
     void Update()
     {  
+        if (player.activeSelf){
+            dist = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        }
         if ((Time.time > fireRate + lastShot) ){ // ficar un and amb la distacia la qual començara a disparar
-            FSpawnProjectil();
-            SoundManagerController.PlaySound("bullet");
-            lastShot = Time.time;
+            if (dist <= 100 && ((player.transform.position.z - gameObject.transform.position.z) < 0)) {
+                FSpawnProjectil();
+                SoundManagerController.PlaySound("bullet");
+                lastShot = Time.time;
+            }
         }
         
     }
@@ -40,7 +49,7 @@ public class SpawnEnemyProjectil : MonoBehaviour
 
 
         proj = Instantiate(projectil, firePoint1.transform.position, Quaternion.identity);
-        direction = projectilOrientation.transform.position - firePoint1.transform.position;
+        direction = player.transform.position - firePoint1.transform.position;
         proj.transform.localRotation = Quaternion.LookRotation(direction);
 
         Destroy (proj, despawnTime);

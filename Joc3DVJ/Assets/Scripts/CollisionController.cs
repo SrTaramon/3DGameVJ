@@ -22,6 +22,8 @@ public class CollisionController : MonoBehaviour
 
     private bool dead;
 
+    public static bool god;
+
     void Start(){
         collider = GetComponent<Collider>();
         audio = GetComponent<AudioSource>();
@@ -29,6 +31,7 @@ public class CollisionController : MonoBehaviour
         dead = false;
         text.gameObject.SetActive(false);
         godMode.gameObject.SetActive(false);
+        god = false;
     }
 
     void Update(){
@@ -37,6 +40,7 @@ public class CollisionController : MonoBehaviour
             dead = true;
         }
         if (Input.GetKeyDown(KeyCode.G)){
+            god = !god;
             collider.enabled = !collider.enabled;
             godMode.gameObject.active = !godMode.gameObject.active;
         }

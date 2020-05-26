@@ -104,12 +104,15 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator QuickSpin(int dir)
     {
         if (!DOTween.IsTweening(player))
-        {
-            collider.enabled = !collider.enabled;
+        {   
+            if (!CollisionController.god){
+                collider.enabled = !collider.enabled;
+            }
             player.DOLocalRotate(new Vector3(player.localEulerAngles.x, player.localEulerAngles.y, 360 * -dir), .4f, RotateMode.LocalAxisAdd).SetEase(Ease.OutSine);
-            
-            yield return new WaitForSeconds(1.5f);
-            collider.enabled = !collider.enabled;
+            yield return new WaitForSeconds(1.2f);
+            if (!CollisionController.god){
+                collider.enabled = !collider.enabled;
+            }
         }
     }
 
