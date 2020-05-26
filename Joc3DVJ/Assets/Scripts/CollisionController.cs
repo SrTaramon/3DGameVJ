@@ -52,7 +52,6 @@ public class CollisionController : MonoBehaviour
             explosionMuerte(c.gameObject);
             audio.mute = !audio.mute;
             vida = 0;
-            Debug.Log("TOWERRR");
         }
         if (c.gameObject.tag == "Tower1"){
             explosionMuerte(c.gameObject);
