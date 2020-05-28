@@ -71,6 +71,7 @@ public class SpawnBossProjectil2 : MonoBehaviour
 
     void OnCollisionEntered(Collider c){
         if (c.gameObject.tag == "FriendBullet"){
+            Debug.Log("AQUi entro");
             vida = vida - 1;
             switch (vida){
                 case 18:
