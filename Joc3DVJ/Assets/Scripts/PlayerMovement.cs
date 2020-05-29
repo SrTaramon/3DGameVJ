@@ -54,6 +54,18 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)){
             StartCoroutine(QuickSpin(1));
         }
+
+        if (SceneManager.GetActiveScene().name == "Level1"){
+            if (SpawnBossProjectil.win1){
+                collider.enabled = false;
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name == "Level2"){
+            if (SpawnBossProjectil2.win2){
+                collider.enabled = false;
+            }
+        }
     }
 
     void AxisMove(float x, float y, float speed){

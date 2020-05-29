@@ -25,12 +25,15 @@ public class SpawnBossProjectil : MonoBehaviour
 
     private int vida;
 
+    public static bool win1;
+
     // Start is called before the first frame update
     void Start()
     {
         vida = 20;
         modorafaga = false;
         win.gameObject.SetActive(false);
+        win1 = false;
     }
 
     // Update is called once per frame
@@ -109,6 +112,7 @@ public class SpawnBossProjectil : MonoBehaviour
                     gameObject.SetActive(false);
                     SoundManagerController.PlaySound("win");
                     win.gameObject.SetActive(true);
+                    win1 = true;
                     break;
             }
             

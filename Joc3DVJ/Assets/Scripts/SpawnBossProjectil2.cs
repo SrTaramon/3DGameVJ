@@ -26,12 +26,15 @@ public class SpawnBossProjectil2 : MonoBehaviour
 
     private int vida;
 
+    public static bool win2;
+
     // Start is called before the first frame update
     void Start()
     {
         vida = 20;
         modorafaga = false;
         win.gameObject.SetActive(false);
+        win2 = false;
     }
 
     // Update is called once per frame
@@ -69,7 +72,7 @@ public class SpawnBossProjectil2 : MonoBehaviour
         Destroy (proj2, despawnTime);
     }
 
-    void OnCollisionEntered(Collider c){
+    void OnCollisionEnter(Collision c){
         if (c.gameObject.tag == "FriendBullet"){
             Debug.Log("AQUi entro");
             vida = vida - 1;
@@ -118,6 +121,7 @@ public class SpawnBossProjectil2 : MonoBehaviour
                     gameObject.SetActive(false);
                     SoundManagerController.PlaySound("win");
                     win.gameObject.SetActive(true);
+                    win2 = true;
                     break;
             }
         }
