@@ -69,7 +69,8 @@ public class SpawnBossProjectil2 : MonoBehaviour
         Destroy (proj2, despawnTime);
     }
 
-    void OnCollisionEntered(Collider c){
+    void OnCollisionEnter(Collision c){
+        //Debug.Log("hit");
         if (c.gameObject.tag == "FriendBullet"){
             Debug.Log("AQUi entro");
             vida = vida - 1;
